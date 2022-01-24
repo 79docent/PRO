@@ -1,0 +1,72 @@
+<%- include('partials/header.ejs') %>
+
+<div class="top-container">
+  <form action="/convert-mp3" method="POST" id="form">
+    <h1><i class="fab fa-youtube"></i> ArtistApp PRO</h1>
+    <h4>Wprowadź ID z linku URL</h4>
+    <div>
+      <input type="text" name="videoId" placeholder="ID filmu..."><button id="submit-btn">Konwertuj</button>
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+  <% if (typeof success != "undefined" && success) { %>
+    <div class="success">
+      <p> <%= song_title %> </p>
+      <a href="<%= song_link %>"><button id="download-btn">Pobierz</button></a>
+    </div>
+  <% } else if (typeof success != "undefined" && !success) { %>
+    <div class="errors">
+      <p> <%= message %> </p>
+    </div>
+  <% } %>
+
+</div>
+
+<div class="search-container">
+    <section class="droparea">
+        <i class="far fa-images"></i>
+        <p class="drop_text">Przeciągnij pliki tutaj!</p>
+        <p class="drop_text"><small>Prześlij plik audio to odtwarzacza</small></p>
+    </section>
+
+    <label for="story">&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<textarea class="textarea" id="textArea" rows="5" cols="33">Pisz swój tekst
+</textarea>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="notes-btn" type="button" value="save" id="save">Zapisz</button>
+</div>
+
+
+
+
+<div class="music-container" id="music-container">
+  <div class="music-info">
+    <h4 class="musictitle" id="title"></h4>
+    <div class="progress-container" id="progress-container">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <audio id="audio"></audio>
+
+  <div class="img-container">
+    <img src="img/template.jpg" alt="music-cover" id="cover" />
+  </div>
+  <div class="navigation">
+    <button id="prev" class="action-btn">
+      <i class="fas fa-backward"></i>
+    </button>
+    <button id="play" class="action-btn action-btn-big">
+      <i class="fas fa-play"></i>
+    </button>
+  </div>
+</div>
+
+
+
+
+<script src="js/player.js"></script>
+
+<%- include('partials/footer.ejs') %>
