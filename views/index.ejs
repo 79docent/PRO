@@ -1,6 +1,6 @@
 <%- include('partials/header.ejs') %>
 
-<div class="top-container">
+<div id="grad1" class="top-container">
   <form action="/convert-mp3" method="POST" id="form">
     <h1><i class="fab fa-youtube"></i> ArtistApp PRO</h1>
     <h4>Wprowadź ID z linku URL</h4>
@@ -25,17 +25,17 @@
 </div>
 
 <div class="search-container">
-    <section class="droparea">
+    <section class="droparea"> 
         <i class="far fa-images"></i>
         <p class="drop_text">Przeciągnij pliki tutaj!</p>
-        <p class="drop_text"><small>Prześlij plik audio to odtwarzacza</small></p>
+        <p class="drop_text"><small>Prześlij plik audio do odtwarzacza</small></p>
     </section>
 
     <label for="story">&nbsp;&nbsp;&nbsp;&nbsp;</label>
 <textarea class="textarea" id="textArea" rows="5" cols="33">Pisz swój tekst
 </textarea>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="notes-btn" type="button" value="save" id="save">Zapisz</button>
+&nbsp;&nbsp;&nbsp;&nbsp; <button class="notes-btn" type="button" value="save" id="save"><h4>Zapisz</h4></button>
 </div>
 
 
@@ -64,9 +64,29 @@
   </div>
 </div>
 
+<div class="whole-converter">
+
+  <div class= "">
+    <br>
+    <h4 class="note-title">Wczytaj plik tekstowy z nutami i przekonwertuj go na format mp3!</h4>
+    <input id="uploadTxtToAppButton" class="notes-btn" type="file" accept=".txt">
+    <br>
+    <textarea id="myTextField" class="textarea" cols="30" rows="10"></textarea>
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.1/Tone.min.js'></script>
+   </div>
+   <br>
+   <div class= "">
+    <audio controls id="notes-audio"></audio>
+   </div>
+   
+  <button id="play_button" class="notes-btn">ODTWÓRZ AUDIO</button> 
+  <button id="stop_button" class="notes-btn">ZATRZYMAJ AUDIO</button> 
+  </div>
 
 
 
+<script src="js/tone.js"></script>
 <script src="js/player.js"></script>
 
 <%- include('partials/footer.ejs') %>
